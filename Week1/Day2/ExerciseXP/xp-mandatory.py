@@ -194,8 +194,8 @@ print(brand)
 def describe_city(city, country="Unknown"):
     print(f"{city} is in {country}.")
 
-describe_city("Abidjan", "Ivory Coast")
-describe_city("Aboisso")
+describe_city("Reykjavik", "Iceland")
+describe_city("Paris")
 
 # Exercise 5 : Random
 # Goal: Create a function that generates random numbers and compares them.
