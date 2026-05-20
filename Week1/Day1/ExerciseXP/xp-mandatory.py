@@ -70,11 +70,14 @@ if a > b:
 # Exercise 7: Odd or Even
 # Instructions
 # Write code that asks the user for a number and determines whether this number is odd or even.
-number = int(input("Enter a number: "))
-if number % 2 == 0:
-    print(f"{number} is even.")
-else:    
-    print(f"{number} is odd.")
+try:
+    number = int(input("Enter a number: "))
+    if number % 2 == 0:
+        print(f"{number} is even.")
+    else:
+        print(f"{number} is odd.")
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
 
 # Exercise 8: What’s your name?
 # Instructions
@@ -92,8 +95,11 @@ else:
 # Write code that will ask the user for their height in centimeters.
 # If they are over 145 cm, print a message that states they are tall enough to ride.
 # If they are not tall enough, print a message that says they need to grow some more to ride.
-height = int(input("What is your height in centimeters? "))
-if height > 145:
-    print("You are tall enough to ride the roller coaster!")
-else:
-    print("You need to grow some more to ride the roller coaster.")
+try:
+    height = int(input("What is your height in centimeters? "))
+    if height > 145:
+        print("You are tall enough to ride the roller coaster!")
+    else:
+        print("You need to grow some more to ride the roller coaster.")
+except ValueError:
+    print("Invalid input. Please enter a valid integer for your height.")
