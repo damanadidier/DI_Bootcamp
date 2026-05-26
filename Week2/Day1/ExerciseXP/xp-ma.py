@@ -42,5 +42,31 @@ print(sleep_data.head())
 # The dataset "How Much Sleep Do Americans Really Get?" contains information about the sleep patterns of Americans. It includes data on the average hours of sleep per night, the percentage of people who get less than 7 hours of sleep, and other related metrics. This dataset can be used to analyze trends in sleep habits and identify factors that may contribute to insufficient sleep among Americans.
 
 
+# Exercise 10: Reading JSON Data
+# Use a [sample JSON dataset](https://github.com/devtlv/Datasets-DA-Bootcamp-2-/raw/refs/heads/main/Week%204%20-%20Data%20Understanding/W4D3%20-%20Importing%20Data,%20Exporting%20D/posts.zip)
+
+# Import the JSON data from the provided URL.
+# Use Pandas to read the JSON data.
+# Display the first five entries of the data.
+
+import io
+import zipfile
+import requests
+import pandas as pd
+
+url = "https://github.com/devtlv/Datasets-DA-Bootcamp-2-/raw/refs/heads/main/Week%204%20-%20Data%20Understanding/W4D3%20-%20Importing%20Data,%20Exporting%20D/posts.zip"
+
+response = requests.get(url, timeout=30)
+response.raise_for_status()
+
+with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+    json_name = next(name for name in z.namelist() if name.endswith(".json"))
+    with z.open(json_name) as f:
+        posts_df = pd.read_json(f)
+
+print(posts_df.head())
+
+
+
 
 
